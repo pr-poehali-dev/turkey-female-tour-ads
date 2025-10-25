@@ -1,14 +1,323 @@
-// Update this page (the content is just a fallback if you fail to update the page)
+import { useState } from 'react';
+import { Button } from '@/components/ui/button';
+import { Card, CardContent } from '@/components/ui/card';
+import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from '@/components/ui/accordion';
+import { Input } from '@/components/ui/input';
+import { Textarea } from '@/components/ui/textarea';
+import Icon from '@/components/ui/icon';
 
-const Index = () => {
+const tourStops = [
+  { id: 1, name: 'Стамбул', description: 'Встреча группы, прогулка по старому городу', x: 30, y: 40 },
+  { id: 2, name: 'Каппадокия', description: 'Воздушные шары на рассвете, пещерные города', x: 55, y: 45 },
+  { id: 3, name: 'Памуккале', description: 'Термальные источники и античный город', x: 40, y: 60 },
+  { id: 4, name: 'Анталия', description: 'Средиземное море и отдых на пляже', x: 50, y: 75 },
+];
+
+const tourDays = [
+  { day: 1, title: 'Прилет в Стамбул', description: 'Встреча в аэропорту, трансфер в отель, welcome-ужин с видом на Босфор' },
+  { day: 2, title: 'Стамбул: Султанахмет', description: 'Голубая мечеть, Айя-София, дворец Топкапы, Гранд-базар' },
+  { day: 3, title: 'Перелет в Каппадокию', description: 'Поселение в пещерном отеле, закатная прогулка' },
+  { day: 4, title: 'Воздушные шары и долины', description: 'Полет на воздушном шаре на рассвете, прогулка по Розовой долине' },
+  { day: 5, title: 'Памуккале', description: 'Переезд к термальным источникам, купание в травертинах' },
+  { day: 6, title: 'Анталия', description: 'Средиземное море, свободное время на пляже' },
+  { day: 7, title: 'Возвращение домой', description: 'Трансфер в аэропорт, вылет' },
+];
+
+const gallery = [
+  { id: 1, url: 'https://cdn.poehali.dev/projects/b49f11c6-af3b-4cdb-8a7f-b8b1b83ee9ac/files/0d0dfd45-b30b-4546-b662-17ab810a87a7.jpg', alt: 'Турецкий пейзаж' },
+  { id: 2, url: 'https://cdn.poehali.dev/projects/b49f11c6-af3b-4cdb-8a7f-b8b1b83ee9ac/files/056d94f3-f908-4713-bbec-14305d1ae6d3.jpg', alt: 'Базар' },
+  { id: 3, url: 'https://cdn.poehali.dev/projects/b49f11c6-af3b-4cdb-8a7f-b8b1b83ee9ac/files/29130b54-d92d-4aaa-a6e8-506b9d0ef0bf.jpg', alt: 'Участницы тура' },
+];
+
+const testimonials = [
+  { name: 'Анна', text: 'Невероятное путешествие! Организация на высшем уровне, каждая деталь продумана', avatar: '👩' },
+  { name: 'Мария', text: 'Полет на воздушном шаре над Каппадокией - это просто магия! Спасибо за незабываемые эмоции', avatar: '👩‍🦰' },
+  { name: 'Елена', text: 'Познакомилась с удивительными женщинами, привезла массу впечатлений и новых подруг', avatar: '👱‍♀️' },
+];
+
+const faqs = [
+  { question: 'Какой уровень физподготовки нужен?', answer: 'Тур рассчитан на комфортный темп, подойдет всем. Прогулки легкие, с остановками.' },
+  { question: 'Виза в Турцию нужна?', answer: 'Нет, для граждан РФ виза не требуется при въезде на срок до 60 дней.' },
+  { question: 'Можно ли одной в номере?', answer: 'Да, доступно размещение в одноместном номере с доплатой.' },
+  { question: 'Что входит в стоимость?', answer: 'Все перелеты внутри Турции, проживание, завтраки, экскурсии по программе, трансферы.' },
+];
+
+export default function Index() {
+  const [activeStop, setActiveStop] = useState<number | null>(null);
+  const [formData, setFormData] = useState({ name: '', phone: '', message: '' });
+
   return (
-    <div className="min-h-screen flex items-center justify-center bg-gray-100">
-      <div className="text-center">
-        <h1 className="text-4xl font-bold mb-4 color-black text-black">Добро пожаловать!</h1>
-        <p className="text-xl text-gray-600">тут будет отображаться ваш проект</p>
-      </div>
+    <div className="min-h-screen">
+      <section className="relative h-screen flex items-center justify-center overflow-hidden">
+        <div 
+          className="absolute inset-0 bg-cover bg-center"
+          style={{ backgroundImage: `url(${gallery[0].url})` }}
+        >
+          <div className="absolute inset-0 bg-gradient-to-b from-black/40 via-black/30 to-black/50" />
+        </div>
+        
+        <div className="relative z-10 text-center text-white px-4 animate-fade-in">
+          <h1 className="text-5xl md:text-7xl font-bold mb-6">Турция для души</h1>
+          <p className="text-xl md:text-2xl mb-8 max-w-2xl mx-auto">
+            Авторский женский тур по самым красивым местам Турции
+          </p>
+          <Button size="lg" className="text-lg px-8 py-6 bg-terracotta hover:bg-terracotta/90">
+            Забронировать место
+            <Icon name="ArrowRight" className="ml-2" size={20} />
+          </Button>
+        </div>
+      </section>
+
+      <section className="py-20 px-4 bg-warmGray">
+        <div className="max-w-6xl mx-auto">
+          <h2 className="text-4xl md:text-5xl font-bold text-center mb-16 animate-fade-in">Маршрут тура</h2>
+          
+          <div className="relative bg-white rounded-3xl p-8 shadow-lg">
+            <div className="relative h-96 bg-gradient-to-br from-turquoise/20 to-terracotta/20 rounded-2xl overflow-hidden">
+              <svg className="absolute inset-0 w-full h-full">
+                <path
+                  d={`M ${tourStops.map((stop, i) => 
+                    `${i === 0 ? 'M' : 'L'} ${stop.x}% ${stop.y}%`
+                  ).join(' ')}`}
+                  stroke="#F97316"
+                  strokeWidth="3"
+                  fill="none"
+                  strokeDasharray="10,5"
+                />
+              </svg>
+              
+              {tourStops.map((stop) => (
+                <div
+                  key={stop.id}
+                  className="absolute transform -translate-x-1/2 -translate-y-1/2 cursor-pointer group"
+                  style={{ left: `${stop.x}%`, top: `${stop.y}%` }}
+                  onMouseEnter={() => setActiveStop(stop.id)}
+                  onMouseLeave={() => setActiveStop(null)}
+                >
+                  <div className={`w-4 h-4 bg-terracotta rounded-full transition-all duration-300 ${
+                    activeStop === stop.id ? 'scale-150' : 'scale-100'
+                  }`} />
+                  
+                  {activeStop === stop.id && (
+                    <Card className="absolute top-6 left-1/2 transform -translate-x-1/2 w-64 animate-scale-in z-10">
+                      <CardContent className="p-4">
+                        <h3 className="font-bold text-lg mb-2">{stop.name}</h3>
+                        <p className="text-sm text-muted-foreground">{stop.description}</p>
+                      </CardContent>
+                    </Card>
+                  )}
+                  
+                  <span className="absolute top-6 left-1/2 transform -translate-x-1/2 whitespace-nowrap font-semibold text-sm">
+                    {stop.name}
+                  </span>
+                </div>
+              ))}
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section className="py-20 px-4">
+        <div className="max-w-4xl mx-auto">
+          <h2 className="text-4xl md:text-5xl font-bold text-center mb-16">Программа по дням</h2>
+          
+          <Accordion type="single" collapsible className="space-y-4">
+            {tourDays.map((day) => (
+              <AccordionItem key={day.day} value={`day-${day.day}`} className="border rounded-2xl px-6 bg-white shadow-sm">
+                <AccordionTrigger className="hover:no-underline py-6">
+                  <div className="flex items-center gap-4 text-left">
+                    <div className="flex-shrink-0 w-12 h-12 rounded-full bg-terracotta text-white flex items-center justify-center font-bold">
+                      {day.day}
+                    </div>
+                    <span className="font-semibold text-lg">{day.title}</span>
+                  </div>
+                </AccordionTrigger>
+                <AccordionContent className="pb-6 pl-16 text-muted-foreground">
+                  {day.description}
+                </AccordionContent>
+              </AccordionItem>
+            ))}
+          </Accordion>
+        </div>
+      </section>
+
+      <section className="py-20 px-4 bg-warmGray">
+        <div className="max-w-6xl mx-auto">
+          <h2 className="text-4xl md:text-5xl font-bold text-center mb-16">Фотогалерея</h2>
+          
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+            {gallery.map((photo) => (
+              <div 
+                key={photo.id} 
+                className="relative overflow-hidden rounded-2xl aspect-square group cursor-pointer"
+              >
+                <img 
+                  src={photo.url} 
+                  alt={photo.alt}
+                  className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110"
+                />
+                <div className="absolute inset-0 bg-gradient-to-t from-black/50 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      <section className="py-20 px-4">
+        <div className="max-w-4xl mx-auto">
+          <h2 className="text-4xl md:text-5xl font-bold text-center mb-4">Об авторе тура</h2>
+          <div className="flex flex-col md:flex-row items-center gap-8 bg-white rounded-3xl p-8 shadow-lg">
+            <div className="w-48 h-48 rounded-full bg-gradient-to-br from-terracotta to-turquoise flex items-center justify-center text-6xl">
+              👩‍✈️
+            </div>
+            <div className="flex-1">
+              <h3 className="text-2xl font-bold mb-4">Екатерина Травелова</h3>
+              <p className="text-muted-foreground leading-relaxed mb-4">
+                Профессиональный гид с 10-летним стажем. Влюблена в Турцию и знаю эту страну как свои пять пальцев. 
+                Организовала более 50 женских туров, каждый из которых становится незабываемым приключением для участниц.
+              </p>
+              <div className="flex gap-2 items-center text-terracotta font-semibold">
+                <Icon name="Heart" size={20} />
+                <span>50+ довольных участниц</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section className="py-20 px-4 bg-accent">
+        <div className="max-w-4xl mx-auto">
+          <h2 className="text-4xl md:text-5xl font-bold text-center mb-16">Отзывы участниц</h2>
+          
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+            {testimonials.map((testimonial, index) => (
+              <Card key={index} className="border-none shadow-lg">
+                <CardContent className="p-6">
+                  <div className="text-5xl mb-4">{testimonial.avatar}</div>
+                  <p className="text-muted-foreground mb-4 italic">"{testimonial.text}"</p>
+                  <p className="font-semibold">{testimonial.name}</p>
+                </CardContent>
+              </Card>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      <section className="py-20 px-4">
+        <div className="max-w-4xl mx-auto">
+          <h2 className="text-4xl md:text-5xl font-bold text-center mb-8">Стоимость</h2>
+          
+          <Card className="bg-gradient-to-br from-terracotta to-turquoise text-white border-none shadow-2xl">
+            <CardContent className="p-12 text-center">
+              <div className="text-6xl font-bold mb-4">89 000 ₽</div>
+              <p className="text-xl mb-8 opacity-90">7 дней / 6 ночей</p>
+              
+              <div className="space-y-3 text-left max-w-md mx-auto mb-8">
+                <div className="flex items-center gap-3">
+                  <Icon name="Check" size={24} />
+                  <span>Проживание в отелях 4-5*</span>
+                </div>
+                <div className="flex items-center gap-3">
+                  <Icon name="Check" size={24} />
+                  <span>Все трансферы и перелеты по Турции</span>
+                </div>
+                <div className="flex items-center gap-3">
+                  <Icon name="Check" size={24} />
+                  <span>Завтраки каждый день</span>
+                </div>
+                <div className="flex items-center gap-3">
+                  <Icon name="Check" size={24} />
+                  <span>Экскурсии с русскоязычным гидом</span>
+                </div>
+                <div className="flex items-center gap-3">
+                  <Icon name="Check" size={24} />
+                  <span>Полет на воздушном шаре</span>
+                </div>
+              </div>
+              
+              <Button size="lg" className="bg-white text-terracotta hover:bg-white/90 text-lg px-8 py-6">
+                Забронировать
+              </Button>
+            </CardContent>
+          </Card>
+        </div>
+      </section>
+
+      <section className="py-20 px-4 bg-warmGray">
+        <div className="max-w-4xl mx-auto">
+          <h2 className="text-4xl md:text-5xl font-bold text-center mb-16">Частые вопросы</h2>
+          
+          <Accordion type="single" collapsible className="space-y-4">
+            {faqs.map((faq, index) => (
+              <AccordionItem key={index} value={`faq-${index}`} className="border rounded-2xl px-6 bg-white shadow-sm">
+                <AccordionTrigger className="hover:no-underline py-6 text-left font-semibold">
+                  {faq.question}
+                </AccordionTrigger>
+                <AccordionContent className="pb-6 text-muted-foreground">
+                  {faq.answer}
+                </AccordionContent>
+              </AccordionItem>
+            ))}
+          </Accordion>
+        </div>
+      </section>
+
+      <section className="py-20 px-4">
+        <div className="max-w-2xl mx-auto">
+          <h2 className="text-4xl md:text-5xl font-bold text-center mb-8">Остались вопросы?</h2>
+          <p className="text-center text-muted-foreground mb-12">
+            Напишите нам, и мы свяжемся с вами в течение 24 часов
+          </p>
+          
+          <form className="space-y-6 bg-white rounded-3xl p-8 shadow-lg">
+            <div>
+              <Input 
+                placeholder="Ваше имя" 
+                value={formData.name}
+                onChange={(e) => setFormData({...formData, name: e.target.value})}
+                className="h-12"
+              />
+            </div>
+            <div>
+              <Input 
+                placeholder="Телефон" 
+                value={formData.phone}
+                onChange={(e) => setFormData({...formData, phone: e.target.value})}
+                className="h-12"
+              />
+            </div>
+            <div>
+              <Textarea 
+                placeholder="Ваш вопрос" 
+                value={formData.message}
+                onChange={(e) => setFormData({...formData, message: e.target.value})}
+                className="min-h-32"
+              />
+            </div>
+            <Button className="w-full h-12 text-lg" size="lg">
+              Отправить
+              <Icon name="Send" className="ml-2" size={20} />
+            </Button>
+          </form>
+        </div>
+      </section>
+
+      <footer className="bg-foreground text-background py-12 px-4">
+        <div className="max-w-6xl mx-auto text-center">
+          <div className="flex justify-center gap-6 mb-6">
+            <a href="#" className="hover:text-terracotta transition-colors">
+              <Icon name="Instagram" size={32} />
+            </a>
+            <a href="#" className="hover:text-terracotta transition-colors">
+              <Icon name="Phone" size={32} />
+            </a>
+            <a href="#" className="hover:text-terracotta transition-colors">
+              <Icon name="Mail" size={32} />
+            </a>
+          </div>
+          <p className="text-sm opacity-70">© 2024 Турция для души. Все права защищены.</p>
+        </div>
+      </footer>
     </div>
   );
-};
-
-export default Index;
+}
