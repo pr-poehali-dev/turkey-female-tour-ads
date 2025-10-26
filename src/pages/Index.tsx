@@ -28,9 +28,14 @@ const tourDays = [
 
 const gallery = [
   { id: 1, url: 'https://cdn.poehali.dev/files/e796966e-f7c9-473c-9a24-51e34a0781a6.jpeg', alt: 'Отдых на берегу моря' },
-  { id: 2, url: 'https://cdn.poehali.dev/projects/b49f11c6-af3b-4cdb-8a7f-b8b1b83ee9ac/files/0d0dfd45-b30b-4546-b662-17ab810a87a7.jpg', alt: 'Турецкий пейзаж' },
-  { id: 3, url: 'https://cdn.poehali.dev/projects/b49f11c6-af3b-4cdb-8a7f-b8b1b83ee9ac/files/056d94f3-f908-4713-bbec-14305d1ae6d3.jpg', alt: 'Базар' },
-  { id: 4, url: 'https://cdn.poehali.dev/projects/b49f11c6-af3b-4cdb-8a7f-b8b1b83ee9ac/files/29130b54-d92d-4aaa-a6e8-506b9d0ef0bf.jpg', alt: 'Участницы тура' },
+  { id: 2, url: 'https://cdn.poehali.dev/files/361e42e3-25a1-4c26-a323-5a91aa30f3d0.jpeg', alt: 'Бассейн с видом на озеро' },
+  { id: 3, url: 'https://cdn.poehali.dev/files/9c72d9aa-a89f-4b75-9b3a-984b22f99524.jpeg', alt: 'Отдых на море' },
+  { id: 4, url: 'https://cdn.poehali.dev/files/ee5deb92-c740-42d6-afe8-a7681b8c9355.jpeg', alt: 'Участницы в СПА' },
+  { id: 5, url: 'https://cdn.poehali.dev/files/d9db32e0-cdae-486b-8e17-ceddb631a6e7.jpeg', alt: 'Качели на воде' },
+  { id: 6, url: 'https://cdn.poehali.dev/files/0c9e3aff-758a-4954-ae3c-1c3aa0f963e7.jpeg', alt: 'Йога на берегу моря' },
+  { id: 7, url: 'https://cdn.poehali.dev/projects/b49f11c6-af3b-4cdb-8a7f-b8b1b83ee9ac/files/0d0dfd45-b30b-4546-b662-17ab810a87a7.jpg', alt: 'Турецкий пейзаж' },
+  { id: 8, url: 'https://cdn.poehali.dev/projects/b49f11c6-af3b-4cdb-8a7f-b8b1b83ee9ac/files/056d94f3-f908-4713-bbec-14305d1ae6d3.jpg', alt: 'Базар' },
+  { id: 9, url: 'https://cdn.poehali.dev/projects/b49f11c6-af3b-4cdb-8a7f-b8b1b83ee9ac/files/29130b54-d92d-4aaa-a6e8-506b9d0ef0bf.jpg', alt: 'Участницы тура' },
 ];
 
 const testimonials = [
