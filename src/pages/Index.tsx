@@ -7,10 +7,9 @@ import { Textarea } from '@/components/ui/textarea';
 import Icon from '@/components/ui/icon';
 
 const tourStops = [
-  { id: 1, name: 'Стамбул', description: 'Встреча группы, прогулка по старому городу', x: 30, y: 40 },
-  { id: 2, name: 'Каппадокия', description: 'Воздушные шары на рассвете, пещерные города', x: 55, y: 45 },
-  { id: 3, name: 'Памуккале', description: 'Термальные источники и античный город', x: 40, y: 60 },
-  { id: 4, name: 'Анталия', description: 'Средиземное море и отдых на пляже', x: 50, y: 75 },
+  { id: 1, name: 'Мармарис', description: 'Старт путешествия, встреча группы', x: 30, y: 50 },
+  { id: 2, name: 'Султание', description: 'Термальные источники и грязевые ванны', x: 70, y: 50 },
+  { id: 3, name: 'Мармарис', description: 'Возвращение, прогулка по набережной', x: 30, y: 50 },
 ];
 
 const tourDays = [
