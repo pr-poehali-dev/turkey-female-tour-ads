@@ -68,6 +68,30 @@ export default function Index() {
         </div>
       </section>
 
+      <section className="py-20 px-4">
+        <div className="max-w-4xl mx-auto">
+          <h2 className="text-4xl md:text-5xl font-bold text-center mb-16">Программа по дням</h2>
+          
+          <Accordion type="single" collapsible className="space-y-4">
+            {tourDays.map((day) => (
+              <AccordionItem key={day.day} value={`day-${day.day}`} className="border rounded-2xl px-6 bg-white shadow-sm">
+                <AccordionTrigger className="hover:no-underline py-6">
+                  <div className="flex items-center gap-4 text-left">
+                    <div className="flex-shrink-0 w-12 h-12 rounded-full bg-terracotta text-white flex items-center justify-center font-bold">
+                      {day.day}
+                    </div>
+                    <span className="font-semibold text-lg">{day.title}</span>
+                  </div>
+                </AccordionTrigger>
+                <AccordionContent className="pb-6 pl-16 text-muted-foreground">
+                  {day.description}
+                </AccordionContent>
+              </AccordionItem>
+            ))}
+          </Accordion>
+        </div>
+      </section>
+
       <section className="py-20 px-4 bg-warmGray">
         <div className="max-w-6xl mx-auto">
           <h2 className="text-4xl md:text-5xl font-bold text-center mb-16 animate-fade-in">Маршрут тура</h2>
@@ -114,30 +138,6 @@ export default function Index() {
               ))}
             </div>
           </div>
-        </div>
-      </section>
-
-      <section className="py-20 px-4">
-        <div className="max-w-4xl mx-auto">
-          <h2 className="text-4xl md:text-5xl font-bold text-center mb-16">Программа по дням</h2>
-          
-          <Accordion type="single" collapsible className="space-y-4">
-            {tourDays.map((day) => (
-              <AccordionItem key={day.day} value={`day-${day.day}`} className="border rounded-2xl px-6 bg-white shadow-sm">
-                <AccordionTrigger className="hover:no-underline py-6">
-                  <div className="flex items-center gap-4 text-left">
-                    <div className="flex-shrink-0 w-12 h-12 rounded-full bg-terracotta text-white flex items-center justify-center font-bold">
-                      {day.day}
-                    </div>
-                    <span className="font-semibold text-lg">{day.title}</span>
-                  </div>
-                </AccordionTrigger>
-                <AccordionContent className="pb-6 pl-16 text-muted-foreground">
-                  {day.description}
-                </AccordionContent>
-              </AccordionItem>
-            ))}
-          </Accordion>
         </div>
       </section>
 
