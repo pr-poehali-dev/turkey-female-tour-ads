@@ -214,33 +214,81 @@ export default function Index() {
 
       <section className="py-20 px-4">
         <div className="max-w-4xl mx-auto">
-          <h2 className="text-4xl md:text-5xl font-bold text-center mb-8">Стоимость</h2>
+          <h2 className="text-4xl md:text-5xl font-bold text-center mb-8">Стоимость тура</h2>
           
           <Card className="bg-gradient-to-br from-terracotta to-turquoise text-white border-none shadow-2xl">
             <CardContent className="p-12 text-center">
-              <div className="text-6xl font-bold mb-4">89 000 ₽</div>
-              <p className="text-xl mb-8 opacity-90">7 дней / 6 ночей</p>
+              <div className="text-6xl font-bold mb-4">1270 $</div>
+              <p className="text-xl mb-8 opacity-90">11 дней / 10 ночей</p>
               
-              <div className="space-y-3 text-left max-w-md mx-auto mb-8">
-                <div className="flex items-center gap-3">
-                  <Icon name="Check" size={24} />
-                  <span>Проживание в отелях 4-5*</span>
+              <div className="space-y-3 text-left max-w-2xl mx-auto mb-8">
+                <div className="flex items-start gap-3">
+                  <Icon name="Check" size={24} className="flex-shrink-0 mt-1" />
+                  <span>Проживание в отеле</span>
                 </div>
-                <div className="flex items-center gap-3">
-                  <Icon name="Check" size={24} />
-                  <span>Все трансферы и перелеты по Турции</span>
+                <div className="flex items-start gap-3">
+                  <Icon name="Check" size={24} className="flex-shrink-0 mt-1" />
+                  <span>Завтраки и ужины</span>
                 </div>
-                <div className="flex items-center gap-3">
-                  <Icon name="Check" size={24} />
-                  <span>Завтраки каждый день</span>
+                <div className="flex items-start gap-3">
+                  <Icon name="Check" size={24} className="flex-shrink-0 mt-1" />
+                  <span>Трансфер</span>
                 </div>
-                <div className="flex items-center gap-3">
-                  <Icon name="Check" size={24} />
-                  <span>Экскурсии с русскоязычным гидом</span>
+                <div className="flex items-start gap-3">
+                  <Icon name="Check" size={24} className="flex-shrink-0 mt-1" />
+                  <span>Обзорная экскурсия по Мармарису, посещение пещеры Нимара</span>
                 </div>
-                <div className="flex items-center gap-3">
-                  <Icon name="Check" size={24} />
-                  <span>Полет на воздушном шаре</span>
+                <div className="flex items-start gap-3">
+                  <Icon name="Check" size={24} className="flex-shrink-0 mt-1" />
+                  <span>Турецкий завтрак</span>
+                </div>
+                <div className="flex items-start gap-3">
+                  <Icon name="Check" size={24} className="flex-shrink-0 mt-1" />
+                  <span>Термальные источники</span>
+                </div>
+                <div className="flex items-start gap-3">
+                  <Icon name="Check" size={24} className="flex-shrink-0 mt-1" />
+                  <span>Красивые рассветы и закаты на озере Köycegiz</span>
+                </div>
+                <div className="flex items-start gap-3">
+                  <Icon name="Check" size={24} className="flex-shrink-0 mt-1" />
+                  <span>Овощные и фруктовые фреши по утрам</span>
+                </div>
+                <div className="flex items-start gap-3">
+                  <Icon name="Check" size={24} className="flex-shrink-0 mt-1" />
+                  <span>Совместно приготовим турецкое блюдо</span>
+                </div>
+                <div className="flex items-start gap-3">
+                  <Icon name="Check" size={24} className="flex-shrink-0 mt-1" />
+                  <span>Очищение восковыми свечами</span>
+                </div>
+                <div className="flex items-start gap-3">
+                  <Icon name="Check" size={24} className="flex-shrink-0 mt-1" />
+                  <span>Нейрографика</span>
+                </div>
+                <div className="flex items-start gap-3">
+                  <Icon name="Check" size={24} className="flex-shrink-0 mt-1" />
+                  <span>Решение одного личного запроса через сессию БоГобан</span>
+                </div>
+                <div className="flex items-start gap-3">
+                  <Icon name="Check" size={24} className="flex-shrink-0 mt-1" />
+                  <span>Женские круги и практики</span>
+                </div>
+                <div className="flex items-start gap-3">
+                  <Icon name="Check" size={24} className="flex-shrink-0 mt-1" />
+                  <span>Экскурсия в Акьяку</span>
+                </div>
+                <div className="flex items-start gap-3">
+                  <Icon name="Check" size={24} className="flex-shrink-0 mt-1" />
+                  <span>Фотосессия в городе Мармарис на берегу моря</span>
+                </div>
+                <div className="flex items-start gap-3">
+                  <Icon name="Check" size={24} className="flex-shrink-0 mt-1" />
+                  <span>Празднование 8 марта в городе Мармарис</span>
+                </div>
+                <div className="flex items-start gap-3">
+                  <Icon name="Check" size={24} className="flex-shrink-0 mt-1" />
+                  <span>Свободное время для шоппинга, прогулок</span>
                 </div>
               </div>
               
