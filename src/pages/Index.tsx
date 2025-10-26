@@ -68,7 +68,7 @@ export default function Index() {
         <div className="relative z-10 text-center text-white px-4 animate-fade-in">
           <h1 className="text-5xl md:text-7xl font-bold mb-6">Турция для души</h1>
           <p className="text-xl md:text-2xl mb-8 max-w-2xl mx-auto">
-            Авторский женский тур по самым красивым местам Турции
+            Авторский женский тур в сердце Турции
           </p>
           <Button size="lg" className="text-lg px-8 py-6 bg-terracotta hover:bg-terracotta/90">
             Забронировать место
