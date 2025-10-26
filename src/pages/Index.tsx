@@ -173,21 +173,33 @@ export default function Index() {
       </section>
 
       <section className="py-20 px-4">
-        <div className="max-w-4xl mx-auto">
-          <h2 className="text-4xl md:text-5xl font-bold text-center mb-4">Об авторе тура</h2>
-          <div className="flex flex-col md:flex-row items-center gap-8 bg-white rounded-3xl p-8 shadow-lg">
-            <div className="w-48 h-48 rounded-full bg-gradient-to-br from-terracotta to-turquoise flex items-center justify-center text-6xl">
-              👩‍✈️
+        <div className="max-w-6xl mx-auto">
+          <h2 className="text-4xl md:text-5xl font-bold text-center mb-12">Организаторы тура</h2>
+          
+          <div className="grid md:grid-cols-2 gap-8">
+            <div className="flex flex-col items-center gap-6 bg-white rounded-3xl p-8 shadow-lg">
+              <div className="w-32 h-32 rounded-full bg-gradient-to-br from-terracotta to-turquoise flex items-center justify-center text-5xl">
+                👩‍💼
+              </div>
+              <div className="text-center">
+                <h3 className="text-2xl font-bold mb-4">Бушуева Наталья</h3>
+                <p className="text-muted-foreground leading-relaxed">
+                  Организатор туров по всему миру. Автор и ведущая женских программ и тренингов. 
+                  Организатор фестивалей, нетворкингов, бизнес-завтраков. Основатель Центра женского 
+                  развития "NOVA" и школы для девочек подростков «Академия юной леди».
+                </p>
+              </div>
             </div>
-            <div className="flex-1">
-              <h3 className="text-2xl font-bold mb-4">Екатерина Травелова</h3>
-              <p className="text-muted-foreground leading-relaxed mb-4">
-                Профессиональный гид с 10-летним стажем. Влюблена в Турцию и знаю эту страну как свои пять пальцев. 
-                Организовала более 50 женских туров, каждый из которых становится незабываемым приключением для участниц.
-              </p>
-              <div className="flex gap-2 items-center text-terracotta font-semibold">
-                <Icon name="Heart" size={20} />
-                <span>50+ довольных участниц</span>
+
+            <div className="flex flex-col items-center gap-6 bg-white rounded-3xl p-8 shadow-lg">
+              <div className="w-32 h-32 rounded-full bg-gradient-to-br from-turquoise to-terracotta flex items-center justify-center text-5xl">
+                👩‍🏫
+              </div>
+              <div className="text-center">
+                <h3 className="text-2xl font-bold mb-4">Светлана Якут</h3>
+                <p className="text-muted-foreground leading-relaxed">
+                  Психолог, мастер нейрографики, ведущая женских кругов.
+                </p>
               </div>
             </div>
           </div>
