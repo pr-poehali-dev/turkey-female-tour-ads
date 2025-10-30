@@ -227,6 +227,76 @@ export default function Index() {
         </div>
       </section>
 
+      <section className="py-20 px-4 bg-warmGray">
+        <div className="max-w-6xl mx-auto">
+          <h2 className="text-4xl md:text-5xl font-bold text-center mb-16">Фото с прошлых туров</h2>
+          
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+            <div className="relative overflow-hidden rounded-2xl aspect-[4/3] group cursor-pointer">
+              <img 
+                src="https://cdn.poehali.dev/projects/b49f11c6-af3b-4cdb-8a7f-b8b1b83ee9ac/files/7194c558-5013-4591-ad6c-651a97f14a5e.jpg" 
+                alt="Групповое фото участниц"
+                className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110"
+              />
+              <div className="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent flex items-end p-6">
+                <p className="text-white font-semibold text-lg">Наша дружная группа</p>
+              </div>
+            </div>
+            
+            <div className="relative overflow-hidden rounded-2xl aspect-[4/3] group cursor-pointer">
+              <img 
+                src="https://cdn.poehali.dev/projects/b49f11c6-af3b-4cdb-8a7f-b8b1b83ee9ac/files/cad972fe-3cfd-4377-bd5f-4d2e0e82c68f.jpg" 
+                alt="Термальные источники"
+                className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110"
+              />
+              <div className="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent flex items-end p-6">
+                <p className="text-white font-semibold text-lg">Релакс в термальных источниках</p>
+              </div>
+            </div>
+            
+            <div className="relative overflow-hidden rounded-2xl aspect-[4/3] group cursor-pointer">
+              <img 
+                src="https://cdn.poehali.dev/projects/b49f11c6-af3b-4cdb-8a7f-b8b1b83ee9ac/files/268a4435-d1d6-4889-a661-1e0968dfea9e.jpg" 
+                alt="Йога на пляже"
+                className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110"
+              />
+              <div className="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent flex items-end p-6">
+                <p className="text-white font-semibold text-lg">Практики на закате</p>
+              </div>
+            </div>
+            
+            <div className="relative overflow-hidden rounded-2xl aspect-[4/3] group cursor-pointer">
+              <img 
+                src="https://cdn.poehali.dev/projects/b49f11c6-af3b-4cdb-8a7f-b8b1b83ee9ac/files/8039c03c-d23b-4921-bf64-b1bff6650d27.jpg" 
+                alt="Праздничный ужин"
+                className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110"
+              />
+              <div className="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent flex items-end p-6">
+                <p className="text-white font-semibold text-lg">Праздничный ужин</p>
+              </div>
+            </div>
+            
+            <div className="relative overflow-hidden rounded-2xl aspect-[4/3] group cursor-pointer">
+              <img 
+                src="https://cdn.poehali.dev/projects/b49f11c6-af3b-4cdb-8a7f-b8b1b83ee9ac/files/3c3cf54a-8f23-4955-a798-c4bf0a4eb936.jpg" 
+                alt="Экскурсия по Мармарису"
+                className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110"
+              />
+              <div className="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent flex items-end p-6">
+                <p className="text-white font-semibold text-lg">Экскурсия по Мармарису</p>
+              </div>
+            </div>
+            
+            <div className="relative overflow-hidden rounded-2xl aspect-[4/3] group cursor-pointer bg-gradient-to-br from-terracotta/20 to-turquoise/20 flex items-center justify-center">
+              <div className="text-center p-6">
+                <Icon name="Camera" size={48} className="mx-auto mb-4 text-terracotta" />
+                <p className="text-lg font-semibold text-foreground">И много других<br />незабываемых моментов!</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
       <section className="py-20 px-4 bg-accent">
         <div className="max-w-4xl mx-auto">
           <h2 className="text-4xl md:text-5xl font-bold text-center mb-16">Отзывы участниц</h2>
