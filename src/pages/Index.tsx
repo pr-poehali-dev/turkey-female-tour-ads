@@ -187,7 +187,7 @@ export default function Index() {
               <img 
                 src="https://cdn.poehali.dev/files/ede616b4-9ae2-4404-b764-02f1e28561e1.jpeg" 
                 alt="Бушуева Наталья" 
-                className="w-32 h-32 rounded-full object-cover shadow-md"
+                className="w-48 h-48 rounded-full object-cover shadow-md"
               />
               <div className="text-center">
                 <h3 className="text-2xl font-bold mb-4">Бушуева Наталья</h3>
@@ -214,7 +214,7 @@ export default function Index() {
               <img 
                 src="https://cdn.poehali.dev/files/2b04a236-c777-4d89-b63c-ff2b68b52e35.jpeg" 
                 alt="Светлана Якут" 
-                className="w-32 h-32 rounded-full object-cover shadow-md"
+                className="w-48 h-48 rounded-full object-cover shadow-md"
               />
               <div className="text-center">
                 <h3 className="text-2xl font-bold mb-4">Светлана Якут</h3>
