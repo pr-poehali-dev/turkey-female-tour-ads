@@ -356,6 +356,33 @@ export default function Index() {
         </div>
       </section>
 
+      <section className="py-20 px-4 bg-gradient-to-br from-terracotta/5 to-turquoise/5">
+        <div className="max-w-4xl mx-auto">
+          <h2 className="text-4xl md:text-5xl font-bold text-center mb-12">Что входит в стоимость</h2>
+          
+          <div className="grid md:grid-cols-2 gap-6">
+            {[
+              { icon: 'Bed', text: 'Проживание в двухместном или трехместном номере' },
+              { icon: 'UtensilsCrossed', text: 'Питание: завтрак-ужин + свежевыжатые соки и фреши на горячих источниках' },
+              { icon: 'Bus', text: 'Трансфер' },
+              { icon: 'MapPin', text: 'Обзорная экскурсия по Мармарису' },
+              { icon: 'Compass', text: 'Обзорная экскурсия в Акьяку' },
+              { icon: 'Heart', text: 'Женские практики' },
+              { icon: 'Waves', text: 'Посещение горячих источников' },
+              { icon: 'Camera', text: 'Фотосессия' },
+              { icon: 'Gift', text: 'Праздничный ужин 8 марта + подарок-сюрприз!' }
+            ].map((item, index) => (
+              <div key={index} className="flex items-start gap-4 bg-white p-6 rounded-2xl shadow-sm hover:shadow-md transition-shadow">
+                <div className="bg-terracotta/10 p-3 rounded-full flex-shrink-0">
+                  <Icon name={item.icon as any} className="text-terracotta" size={24} />
+                </div>
+                <p className="text-lg leading-relaxed pt-2">{item.text}</p>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
       <section id="booking-form" className="py-20 px-4">
         <div className="max-w-2xl mx-auto">
           <h2 className="text-4xl md:text-5xl font-bold text-center mb-8">Забронировать место</h2>
