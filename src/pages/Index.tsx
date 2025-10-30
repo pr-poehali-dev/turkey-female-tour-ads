@@ -53,7 +53,7 @@ const faqs = [
 
 export default function Index() {
   const [activeStop, setActiveStop] = useState<number | null>(null);
-  const [formData, setFormData] = useState({ name: '', phone: '', email: '', tour_date: '', message: '' });
+  const [formData, setFormData] = useState({ name: '', phone: '', email: '', message: '' });
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [submitStatus, setSubmitStatus] = useState<{ type: 'success' | 'error', message: string } | null>(null);
 
@@ -478,7 +478,7 @@ export default function Index() {
                 
                 if (response.ok && data.success) {
                   setSubmitStatus({ type: 'success', message: 'Заявка отправлена! Мы свяжемся с вами в ближайшее время.' });
-                  setFormData({ name: '', phone: '', email: '', tour_date: '', message: '' });
+                  setFormData({ name: '', phone: '', email: '', message: '' });
                 } else {
                   setSubmitStatus({ type: 'error', message: 'Ошибка отправки. Попробуйте еще раз.' });
                 }
@@ -517,14 +517,7 @@ export default function Index() {
                 required
               />
             </div>
-            <div>
-              <Input 
-                placeholder="Желаемая дата тура" 
-                value={formData.tour_date}
-                onChange={(e) => setFormData({...formData, tour_date: e.target.value})}
-                className="h-12"
-              />
-            </div>
+
             <div>
               <Textarea 
                 placeholder="Комментарий или вопросы" 
