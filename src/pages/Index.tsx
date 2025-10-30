@@ -178,9 +178,11 @@ export default function Index() {
           
           <div className="grid md:grid-cols-2 gap-8">
             <div className="flex flex-col items-center gap-6 bg-white rounded-3xl p-8 shadow-lg">
-              <div className="w-32 h-32 rounded-full bg-gradient-to-br from-terracotta to-turquoise flex items-center justify-center text-5xl">
-                👩‍💼
-              </div>
+              <img 
+                src="https://cdn.poehali.dev/files/ede616b4-9ae2-4404-b764-02f1e28561e1.jpeg" 
+                alt="Бушуева Наталья" 
+                className="w-32 h-32 rounded-full object-cover shadow-md"
+              />
               <div className="text-center">
                 <h3 className="text-2xl font-bold mb-4">Бушуева Наталья</h3>
                 <p className="text-muted-foreground leading-relaxed">
