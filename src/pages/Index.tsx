@@ -61,6 +61,7 @@ export default function Index() {
   const [formData, setFormData] = useState({ name: '', phone: '', email: '', message: '' });
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [submitStatus, setSubmitStatus] = useState<{ type: 'success' | 'error', message: string } | null>(null);
+  const [lightboxIndex, setLightboxIndex] = useState<number | null>(null);
 
   return (
     <div className="min-h-screen">
@@ -166,17 +167,20 @@ export default function Index() {
           <h2 className="text-4xl md:text-5xl font-bold text-center mb-16">Фотогалерея</h2>
           
           <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
-            {gallery.map((photo) => (
+            {gallery.map((photo, index) => (
               <div 
                 key={photo.id} 
                 className="relative overflow-hidden rounded-2xl aspect-square group cursor-pointer"
+                onClick={() => setLightboxIndex(index)}
               >
                 <img 
                   src={photo.url} 
                   alt={photo.alt}
                   className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110"
                 />
-                <div className="absolute inset-0 bg-gradient-to-t from-black/50 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
+                <div className="absolute inset-0 bg-gradient-to-t from-black/50 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center">
+                  <Icon name="Maximize2" className="text-white" size={32} />
+                </div>
               </div>
             ))}
           </div>
@@ -586,6 +590,54 @@ export default function Index() {
           <p className="text-sm opacity-70">© 2024 Турция для души. Все права защищены.</p>
         </div>
       </footer>
+
+      {lightboxIndex !== null && (
+        <div 
+          className="fixed inset-0 bg-black/95 z-50 flex items-center justify-center p-4"
+          onClick={() => setLightboxIndex(null)}
+        >
+          <button
+            className="absolute top-4 right-4 text-white hover:text-gray-300 transition-colors"
+            onClick={() => setLightboxIndex(null)}
+          >
+            <Icon name="X" size={32} />
+          </button>
+
+          <button
+            className="absolute left-4 top-1/2 -translate-y-1/2 text-white hover:text-gray-300 transition-colors"
+            onClick={(e) => {
+              e.stopPropagation();
+              setLightboxIndex(prev => prev! > 0 ? prev! - 1 : gallery.length - 1);
+            }}
+          >
+            <Icon name="ChevronLeft" size={48} />
+          </button>
+
+          <div className="max-w-5xl max-h-[90vh] w-full" onClick={(e) => e.stopPropagation()}>
+            <img 
+              src={gallery[lightboxIndex].url} 
+              alt={gallery[lightboxIndex].alt}
+              className="w-full h-full object-contain"
+            />
+            <p className="text-white text-center mt-4 text-lg">
+              {gallery[lightboxIndex].alt}
+            </p>
+            <p className="text-gray-400 text-center mt-2">
+              {lightboxIndex + 1} / {gallery.length}
+            </p>
+          </div>
+
+          <button
+            className="absolute right-4 top-1/2 -translate-y-1/2 text-white hover:text-gray-300 transition-colors"
+            onClick={(e) => {
+              e.stopPropagation();
+              setLightboxIndex(prev => prev! < gallery.length - 1 ? prev! + 1 : 0);
+            }}
+          >
+            <Icon name="ChevronRight" size={48} />
+          </button>
+        </div>
+      )}
     </div>
   );
 }
