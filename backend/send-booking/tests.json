@@ -1,0 +1,18 @@
+{
+  "tests": [
+    {
+      "name": "Handle POST request",
+      "method": "POST",
+      "path": "/",
+      "body": {
+        "name": "Test",
+        "phone": "+7 999 123-45-67",
+        "email": "test@example.com",
+        "tour_date": "June 2025",
+        "message": "Test message"
+      },
+      "expectedStatus": 500,
+      "bodyMatcher": "partial"
+    }
+  ]
+}

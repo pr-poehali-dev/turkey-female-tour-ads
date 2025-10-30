@@ -53,7 +53,9 @@ const faqs = [
 
 export default function Index() {
   const [activeStop, setActiveStop] = useState<number | null>(null);
-  const [formData, setFormData] = useState({ name: '', phone: '', message: '' });
+  const [formData, setFormData] = useState({ name: '', phone: '', email: '', tour_date: '', message: '' });
+  const [isSubmitting, setIsSubmitting] = useState(false);
+  const [submitStatus, setSubmitStatus] = useState<{ type: 'success' | 'error', message: string } | null>(null);
 
   return (
     <div className="min-h-screen">
@@ -70,7 +72,11 @@ export default function Index() {
           <p className="text-xl md:text-2xl mb-8 max-w-2xl mx-auto">
             Авторский женский тур в сердце Турции
           </p>
-          <Button size="lg" className="text-lg px-8 py-6 bg-terracotta hover:bg-terracotta/90">
+          <Button 
+            size="lg" 
+            className="text-lg px-8 py-6 bg-terracotta hover:bg-terracotta/90"
+            onClick={() => document.getElementById('booking-form')?.scrollIntoView({ behavior: 'smooth' })}
+          >
             Забронировать место
             <Icon name="ArrowRight" className="ml-2" size={20} />
           </Button>
@@ -319,7 +325,11 @@ export default function Index() {
                 </div>
               </div>
               
-              <Button size="lg" className="bg-white text-terracotta hover:bg-white/90 text-lg px-8 py-6">
+              <Button 
+                size="lg" 
+                className="bg-white text-terracotta hover:bg-white/90 text-lg px-8 py-6"
+                onClick={() => document.getElementById('booking-form')?.scrollIntoView({ behavior: 'smooth' })}
+              >
                 Забронировать
               </Button>
             </CardContent>
@@ -346,40 +356,104 @@ export default function Index() {
         </div>
       </section>
 
-      <section className="py-20 px-4">
+      <section id="booking-form" className="py-20 px-4">
         <div className="max-w-2xl mx-auto">
-          <h2 className="text-4xl md:text-5xl font-bold text-center mb-8">Остались вопросы?</h2>
+          <h2 className="text-4xl md:text-5xl font-bold text-center mb-8">Забронировать место</h2>
           <p className="text-center text-muted-foreground mb-12">
-            Напишите нам, и мы свяжемся с вами в течение 24 часов
+            Оставьте заявку, и мы свяжемся с вами в течение 24 часов
           </p>
           
-          <form className="space-y-6 bg-white rounded-3xl p-8 shadow-lg">
+          <form 
+            className="space-y-6 bg-white rounded-3xl p-8 shadow-lg"
+            onSubmit={async (e) => {
+              e.preventDefault();
+              setIsSubmitting(true);
+              setSubmitStatus(null);
+              
+              try {
+                const response = await fetch('https://functions.poehali.dev/cf4e52cb-e443-4acd-89ca-b690b26ae02c', {
+                  method: 'POST',
+                  headers: { 'Content-Type': 'application/json' },
+                  body: JSON.stringify(formData)
+                });
+                
+                const data = await response.json();
+                
+                if (response.ok && data.success) {
+                  setSubmitStatus({ type: 'success', message: 'Заявка отправлена! Мы свяжемся с вами в ближайшее время.' });
+                  setFormData({ name: '', phone: '', email: '', tour_date: '', message: '' });
+                } else {
+                  setSubmitStatus({ type: 'error', message: 'Ошибка отправки. Попробуйте еще раз.' });
+                }
+              } catch (error) {
+                setSubmitStatus({ type: 'error', message: 'Ошибка соединения. Проверьте интернет.' });
+              } finally {
+                setIsSubmitting(false);
+              }
+            }}
+          >
             <div>
               <Input 
-                placeholder="Ваше имя" 
+                placeholder="Ваше имя *" 
                 value={formData.name}
                 onChange={(e) => setFormData({...formData, name: e.target.value})}
                 className="h-12"
+                required
               />
             </div>
             <div>
               <Input 
-                placeholder="Телефон" 
+                placeholder="Телефон *" 
                 value={formData.phone}
                 onChange={(e) => setFormData({...formData, phone: e.target.value})}
+                className="h-12"
+                required
+              />
+            </div>
+            <div>
+              <Input 
+                type="email"
+                placeholder="Email *" 
+                value={formData.email}
+                onChange={(e) => setFormData({...formData, email: e.target.value})}
+                className="h-12"
+                required
+              />
+            </div>
+            <div>
+              <Input 
+                placeholder="Желаемая дата тура" 
+                value={formData.tour_date}
+                onChange={(e) => setFormData({...formData, tour_date: e.target.value})}
                 className="h-12"
               />
             </div>
             <div>
               <Textarea 
-                placeholder="Ваш вопрос" 
+                placeholder="Комментарий или вопросы" 
                 value={formData.message}
                 onChange={(e) => setFormData({...formData, message: e.target.value})}
                 className="min-h-32"
               />
             </div>
-            <Button className="w-full h-12 text-lg" size="lg">
-              Отправить
+            
+            {submitStatus && (
+              <div className={`p-4 rounded-lg ${
+                submitStatus.type === 'success' 
+                  ? 'bg-green-50 text-green-800' 
+                  : 'bg-red-50 text-red-800'
+              }`}>
+                {submitStatus.message}
+              </div>
+            )}
+            
+            <Button 
+              type="submit" 
+              className="w-full h-12 text-lg" 
+              size="lg"
+              disabled={isSubmitting}
+            >
+              {isSubmitting ? 'Отправка...' : 'Отправить заявку'}
               <Icon name="Send" className="ml-2" size={20} />
             </Button>
           </form>
