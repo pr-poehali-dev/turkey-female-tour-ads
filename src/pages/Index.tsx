@@ -36,6 +36,11 @@ const gallery = [
   { id: 7, url: 'https://cdn.poehali.dev/projects/b49f11c6-af3b-4cdb-8a7f-b8b1b83ee9ac/files/0d0dfd45-b30b-4546-b662-17ab810a87a7.jpg', alt: 'Турецкий пейзаж' },
   { id: 8, url: 'https://cdn.poehali.dev/projects/b49f11c6-af3b-4cdb-8a7f-b8b1b83ee9ac/files/056d94f3-f908-4713-bbec-14305d1ae6d3.jpg', alt: 'Базар' },
   { id: 9, url: 'https://cdn.poehali.dev/projects/b49f11c6-af3b-4cdb-8a7f-b8b1b83ee9ac/files/29130b54-d92d-4aaa-a6e8-506b9d0ef0bf.jpg', alt: 'Участницы тура' },
+  { id: 10, url: 'https://cdn.poehali.dev/files/b903130e-e8fa-47be-8056-8beb99f77dd3.jpeg', alt: 'Отдых на берегу с видом на море' },
+  { id: 11, url: 'https://cdn.poehali.dev/files/18aa253c-fbe7-420b-b114-973ba13485dd.jpeg', alt: 'Лодки на озере' },
+  { id: 12, url: 'https://cdn.poehali.dev/files/1521b813-a9cf-417c-ab70-c88494fa8093.jpeg', alt: 'Уютный отель с цветами' },
+  { id: 13, url: 'https://cdn.poehali.dev/files/cf064487-117c-48bf-a487-8cd742aee7df.jpeg', alt: 'Птицы на озере' },
+  { id: 14, url: 'https://cdn.poehali.dev/files/f1c36981-abc6-4404-82e5-eb23dc0c6761.jpeg', alt: 'Участница тура' },
 ];
 
 const testimonials = [
