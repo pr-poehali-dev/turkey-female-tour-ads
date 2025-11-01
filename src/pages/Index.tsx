@@ -93,6 +93,11 @@ const pastToursGallery = [
   { id: 3, url: 'https://cdn.poehali.dev/files/c2f4be95-e561-4915-afa5-8677616a8c02.png', alt: 'Участницы тура на экскурсии' },
   { id: 4, url: 'https://cdn.poehali.dev/files/cfbffef9-1520-4521-a4f1-55d8e1e9eb46.png', alt: 'Бассейн виллы с беседкой' },
   { id: 5, url: 'https://cdn.poehali.dev/files/17854419-76f8-4735-b25c-a9a1740f9f82.png', alt: 'Спальня с балконом' },
+  { id: 6, url: 'https://cdn.poehali.dev/files/1b3cfb64-732e-4032-91d8-5ea26083b045.png', alt: 'Подруги в соломенных шляпах' },
+  { id: 7, url: 'https://cdn.poehali.dev/files/268cd674-7be8-4cec-ac57-fddd19afda75.png', alt: 'Ноги участниц в воде с цветами' },
+  { id: 8, url: 'https://cdn.poehali.dev/files/881ae503-ee0b-4879-8390-d1d2ce0ee46e.png', alt: 'Многоуровневый бассейн со статуей Будды' },
+  { id: 9, url: 'https://cdn.poehali.dev/files/43f25ed8-bbab-4239-9e83-a5824c2e78f8.png', alt: 'Группа участниц в традиционных юбках' },
+  { id: 10, url: 'https://cdn.poehali.dev/files/c253156e-203b-4ea2-bbb8-1c60e83fd763.png', alt: 'Девушка в бассейне' },
 ];
 
 const testimonials = [
