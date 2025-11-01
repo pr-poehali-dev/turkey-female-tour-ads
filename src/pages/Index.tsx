@@ -87,6 +87,14 @@ const gallery = [
   { id: 14, url: 'https://cdn.poehali.dev/files/f1c36981-abc6-4404-82e5-eb23dc0c6761.jpeg', alt: 'Участница тура' },
 ];
 
+const pastToursGallery = [
+  { id: 1, url: 'https://cdn.poehali.dev/files/2d5da7ac-c5af-42ec-a1d3-9c8575ef2597.png', alt: 'Девушка с слоном' },
+  { id: 2, url: 'https://cdn.poehali.dev/files/066cc752-816b-4140-9dd0-3558c2f42c68.png', alt: 'Табличка "Мне хорошо" у водопада' },
+  { id: 3, url: 'https://cdn.poehali.dev/files/c2f4be95-e561-4915-afa5-8677616a8c02.png', alt: 'Участницы тура на экскурсии' },
+  { id: 4, url: 'https://cdn.poehali.dev/files/cfbffef9-1520-4521-a4f1-55d8e1e9eb46.png', alt: 'Бассейн виллы с беседкой' },
+  { id: 5, url: 'https://cdn.poehali.dev/files/17854419-76f8-4735-b25c-a9a1740f9f82.png', alt: 'Спальня с балконом' },
+];
+
 const testimonials = [
   { name: 'Варвара', text: 'Я получила гораздо больше чем ожидала, я вернулась другой, и каждый день в моей голове и в сердце что-то происходит, что-то бесповоротно меняется. Для меня жизнь разделилась на до и после поездки. Волшебство.', avatar: '👩' },
   { name: 'Евгения', text: 'Благодарю за этот тур!!! Никогда не жила в таких шикарных условиях, осталась в полном восторге. Это было именно то, что мне нужно. Осталась довольна абсолютно всем!!!', avatar: '👩‍🦰' },
@@ -346,6 +354,32 @@ export default function Index() {
                 <p className="text-lg font-semibold text-foreground">И много других<br />незабываемых моментов!</p>
               </div>
             </div>
+          </div>
+        </div>
+      </section>
+
+      <section className="py-20 px-4 bg-gradient-to-br from-terracotta/5 to-turquoise/5">
+        <div className="max-w-7xl mx-auto">
+          <h2 className="text-4xl md:text-5xl font-bold text-center mb-4">Фото с прошлых туров</h2>
+          <p className="text-center text-muted-foreground mb-12 max-w-2xl mx-auto">
+            Вот так мы отдыхали, открывали новое и радовались жизни вместе
+          </p>
+          
+          <div className="grid grid-cols-1 md:grid-cols-3 lg:grid-cols-5 gap-4">
+            {pastToursGallery.map((photo) => (
+              <div 
+                key={photo.id} 
+                className="relative overflow-hidden rounded-2xl aspect-square group cursor-pointer"
+                onClick={() => setLightboxIndex(gallery.length + photo.id - 1)}
+              >
+                <img 
+                  src={photo.url} 
+                  alt={photo.alt}
+                  className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110"
+                />
+                <div className="absolute inset-0 bg-black/0 group-hover:bg-black/20 transition-colors duration-300" />
+              </div>
+            ))}
           </div>
         </div>
       </section>
@@ -651,7 +685,8 @@ export default function Index() {
             className="absolute left-4 top-1/2 -translate-y-1/2 text-white hover:text-gray-300 transition-colors"
             onClick={(e) => {
               e.stopPropagation();
-              setLightboxIndex(prev => prev! > 0 ? prev! - 1 : gallery.length - 1);
+              const totalPhotos = gallery.length + pastToursGallery.length;
+              setLightboxIndex(prev => prev! > 0 ? prev! - 1 : totalPhotos - 1);
             }}
           >
             <Icon name="ChevronLeft" size={48} />
@@ -659,15 +694,15 @@ export default function Index() {
 
           <div className="max-w-5xl max-h-[90vh] w-full" onClick={(e) => e.stopPropagation()}>
             <img 
-              src={gallery[lightboxIndex].url} 
-              alt={gallery[lightboxIndex].alt}
+              src={lightboxIndex < gallery.length ? gallery[lightboxIndex].url : pastToursGallery[lightboxIndex - gallery.length].url} 
+              alt={lightboxIndex < gallery.length ? gallery[lightboxIndex].alt : pastToursGallery[lightboxIndex - gallery.length].alt}
               className="w-full h-full object-contain"
             />
             <p className="text-white text-center mt-4 text-lg">
-              {gallery[lightboxIndex].alt}
+              {lightboxIndex < gallery.length ? gallery[lightboxIndex].alt : pastToursGallery[lightboxIndex - gallery.length].alt}
             </p>
             <p className="text-gray-400 text-center mt-2">
-              {lightboxIndex + 1} / {gallery.length}
+              {lightboxIndex + 1} / {gallery.length + pastToursGallery.length}
             </p>
           </div>
 
@@ -675,7 +710,8 @@ export default function Index() {
             className="absolute right-4 top-1/2 -translate-y-1/2 text-white hover:text-gray-300 transition-colors"
             onClick={(e) => {
               e.stopPropagation();
-              setLightboxIndex(prev => prev! < gallery.length - 1 ? prev! + 1 : 0);
+              const totalPhotos = gallery.length + pastToursGallery.length;
+              setLightboxIndex(prev => prev! < totalPhotos - 1 ? prev! + 1 : 0);
             }}
           >
             <Icon name="ChevronRight" size={48} />
