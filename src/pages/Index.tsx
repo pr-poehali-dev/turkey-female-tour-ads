@@ -98,7 +98,6 @@ const pastToursGallery = [
   { id: 11, url: 'https://cdn.poehali.dev/files/8de4a7da-303b-4928-b6fd-25219d45c2cd.png', alt: 'Девушка в красном платье на фоне рисовых террас' },
   { id: 12, url: 'https://cdn.poehali.dev/files/f7ba7a10-2f61-4c2a-bbb6-429e33ca949b.png', alt: 'Девушка с десертом на пляже' },
   { id: 13, url: 'https://cdn.poehali.dev/files/74b4ad2f-160c-4ea0-bdb1-9aea7fd14cd9.png', alt: 'Участницы на слоне' },
-  { id: 14, url: 'https://cdn.poehali.dev/projects/b49f11c6-af3b-4cdb-8a7f-b8b1b83ee9ac/files/6063e19c-bd65-4a8b-8569-68ad8465d038.jpg', alt: 'Праздничный ужин' },
   { id: 15, url: 'https://cdn.poehali.dev/files/5def7e53-ddf0-4648-ac43-1f754ed1f38a.png', alt: 'Три подруги у водопада' },
 ];
 
