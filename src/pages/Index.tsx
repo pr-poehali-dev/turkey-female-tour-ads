@@ -100,6 +100,9 @@ const pastToursGallery = [
   { id: 13, url: 'https://cdn.poehali.dev/files/74b4ad2f-160c-4ea0-bdb1-9aea7fd14cd9.png', alt: 'Участницы на слоне' },
   { id: 14, url: 'https://cdn.poehali.dev/projects/b49f11c6-af3b-4cdb-8a7f-b8b1b83ee9ac/files/6063e19c-bd65-4a8b-8569-68ad8465d038.jpg', alt: 'Праздничный ужин' },
   { id: 15, url: 'https://cdn.poehali.dev/files/5def7e53-ddf0-4648-ac43-1f754ed1f38a.png', alt: 'Три подруги у водопада' },
+  { id: 16, url: 'https://cdn.poehali.dev/projects/b49f11c6-af3b-4cdb-8a7f-b8b1b83ee9ac/files/61219bce-d749-4d76-9ab2-4d7e1b991208.jpg', alt: 'Турецкий завтрак' },
+  { id: 17, url: 'https://cdn.poehali.dev/projects/b49f11c6-af3b-4cdb-8a7f-b8b1b83ee9ac/files/2c4a7f77-468a-4228-b835-faa5ed8b94e9.jpg', alt: 'Морская экскурсия' },
+  { id: 18, url: 'https://cdn.poehali.dev/projects/b49f11c6-af3b-4cdb-8a7f-b8b1b83ee9ac/files/daf739c9-ecac-4b9d-b482-a98d73eaf5cd.jpg', alt: 'Письменные практики' },
 ];
 
 const testimonials = [
