@@ -387,6 +387,17 @@ export default function Index() {
                 <p className="text-white font-semibold text-lg">Письменные практики</p>
               </div>
             </div>
+            
+            <div className="relative overflow-hidden rounded-2xl aspect-[4/3] group cursor-pointer">
+              <img 
+                src="https://cdn.poehali.dev/projects/b49f11c6-af3b-4cdb-8a7f-b8b1b83ee9ac/files/07034f8c-d17a-4d07-9fde-ce04123dfb9d.jpg" 
+                alt="Экскурсия в Акъяку"
+                className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110"
+              />
+              <div className="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent flex items-end p-6">
+                <p className="text-white font-semibold text-lg">Экскурсия в Акъяку</p>
+              </div>
+            </div>
           </div>
         </div>
       </section>
