@@ -357,7 +357,7 @@ export default function Index() {
             
             <div className="relative overflow-hidden rounded-2xl aspect-[4/3] group cursor-pointer">
               <img 
-                src="https://cdn.poehali.dev/projects/b49f11c6-af3b-4cdb-8a7f-b8b1b83ee9ac/files/a2c7f8e1-0244-4510-b6b2-33ef308dfce7.jpg" 
+                src="https://cdn.poehali.dev/projects/b49f11c6-af3b-4cdb-8a7f-b8b1b83ee9ac/files/c26da204-0987-45ac-800c-c11395b31df1.jpg" 
                 alt="Турецкий завтрак"
                 className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110"
               />
