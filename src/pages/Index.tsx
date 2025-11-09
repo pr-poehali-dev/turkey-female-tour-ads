@@ -451,7 +451,7 @@ export default function Index() {
           
           <Card className="bg-gradient-to-br from-terracotta to-turquoise text-white border-none shadow-2xl">
             <CardContent className="p-12 text-center">
-              <div className="text-6xl font-bold mb-4">1270 $</div>
+              <div className="text-6xl font-bold mb-4">1470 $</div>
               <p className="text-xl mb-8 opacity-90">11 дней / 10 ночей</p>
               
               <div className="space-y-3 text-left max-w-2xl mx-auto mb-8">
