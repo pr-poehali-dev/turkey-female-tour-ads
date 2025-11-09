@@ -82,6 +82,10 @@ const gallery = [
   { id: 12, url: 'https://cdn.poehali.dev/files/1521b813-a9cf-417c-ab70-c88494fa8093.jpeg', alt: 'Уютный отель с цветами' },
   { id: 13, url: 'https://cdn.poehali.dev/files/cf064487-117c-48bf-a487-8cd742aee7df.jpeg', alt: 'Птицы на озере' },
   { id: 14, url: 'https://cdn.poehali.dev/files/f1c36981-abc6-4404-82e5-eb23dc0c6761.jpeg', alt: 'Участница тура' },
+  { id: 15, url: 'https://cdn.poehali.dev/files/775d8fa6-1bf5-4e80-a949-71626663ac27.jpeg', alt: 'Отдых в термальных источниках' },
+  { id: 16, url: 'https://cdn.poehali.dev/files/59a93e24-0d2d-4082-b336-507bf2ae94f7.jpeg', alt: 'Участницы у озера Кёйджегиз' },
+  { id: 17, url: 'https://cdn.poehali.dev/files/cd9722b9-bc82-426b-b32a-817532ca463a.jpeg', alt: 'Купание в термальных бассейнах' },
+  { id: 18, url: 'https://cdn.poehali.dev/files/36af6c8e-2c12-4737-a4c2-ae2c85bfd064.jpeg', alt: 'Прогулка у озера' },
 ];
 
 const pastToursGallery = [
